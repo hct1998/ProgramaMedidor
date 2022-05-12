@@ -38,6 +38,7 @@ namespace MedidorModel.DAL
                 using (StreamWriter writer = new StreamWriter(archivo, true))
                 {
                     writer.WriteLine(Medidor.Nummedidor + ";");
+                    writer.Flush();
                 }
             }
             catch (Exception ex)
@@ -61,9 +62,9 @@ namespace MedidorModel.DAL
                         if (nummedidor != null)
                         {
                             string[] arr = nummedidor.Trim().Split(';');
-                            Medidor medidor = new Medidor();
+                            Medidor medidor = new Medidor()
                             {
-                                Nummedidor = arr[0],
+                               Nummedidor = arr [0]
                             };
                             lista.Add(medidor);
 
