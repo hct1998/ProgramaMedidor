@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MedidorModel.DAL
 {
-    interface ILecturaDAL
+    public interface ILecturaDAL
     {
     }
 }

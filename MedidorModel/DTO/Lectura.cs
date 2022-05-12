@@ -16,6 +16,9 @@ namespace MedidorModel.DTO
         public string Fecha { get => fecha; set => fecha = value; }
         public string Consumo { get => consumo; set => consumo = value; }
 
-
+        public override string ToString()
+        {
+            return nummedidor + " " + consumo + " " + fecha;
+        }
     }
 }
