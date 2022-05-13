@@ -21,6 +21,7 @@ namespace ProgramaMedidor.Comunicacion
 
         public void Ejecutar()
         {
+            clienteCom.Escribir("Ingresar Lecturas Medidor");
             clienteCom.Escribir("Ingrese ID Medidor");
             string nummedidor = clienteCom.Leer();
             clienteCom.Escribir("Ingrese fecha");
@@ -32,7 +33,7 @@ namespace ProgramaMedidor.Comunicacion
             {
                 Nummedidor = nummedidor,
                 Fecha = fecha,
-                Consumo = consumo
+                Consumo = consumo,
             };
             lecturaDAL.AgregarLectura(lectura);
             clienteCom.Desconectar();
