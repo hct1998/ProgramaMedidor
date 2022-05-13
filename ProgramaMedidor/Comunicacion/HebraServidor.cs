@@ -1,13 +1,21 @@
-﻿using System;
+﻿using MedidorModel.DAL;
+using ServerUtils;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace ProgramaMedidor.Comunicacion
- public class HebraServidor
 {
-    private IMensajesDAL mensajesDAL = MensajesDALArchivos.GetIntancia();
+
+
+ public class HebraServidor
+    {
+    private ILecturaDAL lecturasDAL = LecturaDALArchivos.GetIntancia();
 
     public void Ejecutar()
     {

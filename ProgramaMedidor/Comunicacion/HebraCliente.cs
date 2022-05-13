@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MedidorModel.DAL;
+using MedidorModel.DTO;
+using ServerUtils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,30 +11,34 @@ namespace ProgramaMedidor.Comunicacion
 {
     class HebraCliente
     {
-        private IMensajesDAL mensajesDAL = MensajesDALArchivos.GetIntancia();
+        private ILecturaDAL lecturaDAL = LecturaDALArchivos.GetIntancia();
         private ClienteCom clienteCom;
 
         public HebraCliente(ClienteCom clienteCom)
         {
             this.clienteCom = clienteCom;
-
         }
 
         public void Ejecutar()
         {
-            clienteCom.Escribir("Ingrese nombre: ");
-            string nombre = clienteCom.Leer();
-            clienteCom.Escribir("Ingrese texto: ");
-            string texto = clienteCom.Leer();
-            Mensaje mensaje = new Mensaje()
+            clienteCom.Escribir("Ingrese ID Medidor");
+            string nummedidor = clienteCom.Leer();
+            clienteCom.Escribir("Ingrese fecha");
+            string fecha = clienteCom.Leer();
+            clienteCom.Escribir("Ingrese consumo");
+            string consumo = clienteCom.Leer();
+
+            Lectura lectura = new Lectura()
             {
-                Nombre = nombre,
-                Texto = texto,
-                Tipo = "TCP"
+                Nummedidor = nummedidor,
+                Fecha = fecha,
+                Consumo = consumo
             };
-            mensajesDAL.AgregarMensaje(mensaje);
+            lecturaDAL.AgregarLectura(lectura);
             clienteCom.Desconectar();
+
         }
+
 
     }
 }
