@@ -35,7 +35,11 @@ namespace ProgramaMedidor.Comunicacion
                 Fecha = fecha,
                 Consumo = consumo,
             };
-            lecturaDAL.AgregarLectura(lectura);
+            lock (lecturaDAL)
+            {
+                lecturaDAL.AgregarLectura(lectura);
+            }
+            
             clienteCom.Desconectar();
 
         }

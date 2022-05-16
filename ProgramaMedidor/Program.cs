@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace ProgramaMedidor
 {
+    //seccion 171, TRABAJE SOLO PROFESOR, ME GUIE CON EL EJERCICIO MENSAJERO
     class Program
     {
         private static ILecturaDAL lecturaDAL = LecturaDALArchivos.GetIntancia();
@@ -31,6 +32,11 @@ namespace ProgramaMedidor
                     break;
                 case "4": MostrarMedidores();
                     break;
+
+                case "0":
+                    continuar = false;
+                    break;
+
                 default: Console.WriteLine("Ingrese opcion de nuevo");
                     break;
 
